@@ -50,6 +50,6 @@ jobboard-web/
 ```
 ## How to Set Up Locally
 ```
-git clone https://github.com/your-username/ngoma-job-board.git
-cd ngoma-job-board
+git clone https://github.com/mwumvanezaj/front-end.git
+cd jobboard_web
 ```

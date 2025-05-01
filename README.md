@@ -31,7 +31,7 @@ What began as a grassroots initiative quickly evolved into a digital platform dr
 ## 🗂️ Project Folder Structure
 
 ```plaintext
-community-web-app/
+jobboard-web/
 │
 ├── index.html               # Main homepage
 ├                            # Optional additional page

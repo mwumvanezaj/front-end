@@ -40,9 +40,151 @@
     </div>
     
 </nav>
-<button class="register-btn" id="registerBtn">Register &nbsp;
-    <i class="fas fa-arrow-right"></i>
-</button>
+
+<!-- Register Button -->
+<button class="register-btn" id="registerBtn">Register &nbsp;<i class="fas fa-arrow-right"></i></button>
+
+<!-- Modal -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+
+    <!-- Sign Up Form -->
+    <div id="signupForm">
+      <h2>Sign Up</h2>
+      <input type="text" id="fname" placeholder="First Name" required>
+      <input type="text" id="lname" placeholder="Last Name" required>
+      <input type="email" id="email" placeholder="Email (e.g. example@gmail.com)" required>
+      <input type="tel" id="phone" placeholder="+250 78xxxxxxx" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="password" id="confirmPassword" placeholder="Re-type Password" required>
+      <p class="error" id="passwordError">Passwords do not match!</p>
+      <p class="error" id="emailError">Invalid email format!</p>
+      <p class="error" id="phoneError">Phone number must be 10 digits!</p>
+      <button class="sec" onclick="submitSignup()">Create Account</button>
+      <div class="switch-form">
+        Already have an account? <a href="#" id="showLogin">Login here</a>
+      </div>
+    </div>
+
+    <!-- Login Form -->
+    <div id="loginForm" style="display: none;">
+      <h2>Login</h2>
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button class="sec" onclick="loginUser()">Login</button>
+      <div class="switch-form">
+        Don't have an account? <a href="#" id="showSignup">Sign up here</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    const modal = document.getElementById("registerModal");
+    const registerBtn = document.getElementById("registerBtn");
+    const closeModal = document.getElementById("closeModal");
+  
+    const signupForm = document.getElementById("signupForm");
+    const loginForm = document.getElementById("loginForm");
+  
+    registerBtn.onclick = () => {
+      modal.style.display = "block";
+      signupForm.style.display = "block";
+      loginForm.style.display = "none";
+    };
+  
+    closeModal.onclick = () => {
+      modal.style.display = "none";
+    };
+  
+    window.onclick = (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+  
+    document.getElementById("showLogin").onclick = (e) => {
+      e.preventDefault();
+      signupForm.style.display = "none";
+      loginForm.style.display = "block";
+    };
+  
+    document.getElementById("showSignup").onclick = (e) => {
+      e.preventDefault();
+      loginForm.style.display = "none";
+      signupForm.style.display = "block";
+    };
+  
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+  
+    function isValidPhone(phone) {
+      const numbersOnly = phone.replace(/\D/g, '');
+      return numbersOnly.length === 10;
+    }
+  
+    function submitSignup() {
+  const fname = document.getElementById("fname").value.trim();
+  const lname = document.getElementById("lname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const password = document.getElementById("password").value;
+  const confirm = document.getElementById("confirmPassword").value;
+
+  const emailError = document.getElementById("emailError");
+  const phoneError = document.getElementById("phoneError");
+  const passwordError = document.getElementById("passwordError");
+
+  // Show inline alerts for missing names
+  if (!fname || !lname) {
+    alert("Please enter both your first name and last name.");
+    return;
+  }
+
+  // Reset error visibility
+  emailError.style.display = "none";
+  phoneError.style.display = "none";
+  passwordError.style.display = "none";
+
+  if (!isValidEmail(email)) {
+    emailError.style.display = "block";
+    return;
+  }
+
+  if (!isValidPhone(phone)) {
+    phoneError.style.display = "block";
+    return;
+  }
+
+  if (password !== confirm) {
+    passwordError.style.display = "block";
+    return;
+  }
+
+  alert("Account created successfully!");
+  modal.style.display = "none";
+}
+
+  
+    function loginUser() {
+      const email = document.getElementById("loginEmail").value.trim();
+      const password = document.getElementById("loginPassword").value;
+  
+      if (email && password) {
+        alert("Login Successfully");
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+
+
+
+
+
+
 
 <div class="paragraph" id="paragraphContainer">
     <span id="title">Connect, Opportunity, and Grow with the Job Board website.</span> 

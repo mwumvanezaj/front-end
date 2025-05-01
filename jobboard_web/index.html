@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Board</title>
+    <link rel="icon" href="./img/i.jpg" type="icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="nav">
+<nav>
+    
+    <span>JOB BOARD</span>
+    <ul class="listychall">
+        <li><a href="index.html" id="home">Home</a></li>
+        <li><a href="#mission" id="about">About Us</a></li>
+        <li><a href="#elevator" id="services">Services</a></li>
+        <li><a href="#contacty" id="contact">Contact Us</a></li>
+        <li class="language-selector">
+            <i class="fas fa-globe language-icon"></i>
+            <div class="dropdown">
+                <a href="#" onclick="changeLanguage('en')">🇬🇧 English</a>
+                <a href="#" onclick="changeLanguage('rw')">🇷🇼 Kinyarwanda</a>
+                <a href="#" onclick="changeLanguage('sw')">🇰🇪 Kiswahili</a>
+                <a href="#" onclick="changeLanguage('fr')">🇫🇷 Français</a>
+                <a href="#" onclick="changeLanguage('zh')">🇨🇳 中文</a>
+                <a href="#" onclick="changeLanguage('de')">🇩🇪 Deutsch</a>
+                <a href="#" onclick="changeLanguage('es')">🇪🇸 Español</a>
+            </div>
+        </li>
+    </ul>
+     <!-- Search functionality -->
+     <div class="search-container" id="searchContainer">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+        <button class="search-button">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    
+</nav>
+<button class="register-btn" id="registerBtn">Register &nbsp;
+    <i class="fas fa-arrow-right"></i>
+</button>
+
+<div class="paragraph" id="paragraphContainer">
+    <span id="title">Connect, Opportunity, and Grow with the Job Board website.</span> 
+    <br> <br>
+    <p id="description">Looking for your next opportunity?
+        Find your ideal job right here in Ngoma District. 
+        We connect job seekers with real, local opportunities.
+    </p>
+</div>
+
+<script>
+    // Function to toggle the search input visibility
+    function toggleSearch() {
+        const searchInput = document.getElementById("searchInput");
+        searchInput.classList.toggle("active"); // Toggle visibility
+        if (searchInput.classList.contains("active")) {
+            searchInput.focus(); // Focus the input when shown
+        }
+    }
+
+    // Basic search function to filter page content (for demonstration)
+    function searchContent() {
+        const query = document.getElementById("searchInput").value.toLowerCase();
+        const contentElements = document.querySelectorAll("body *"); // Select all elements in the body
+
+        contentElements.forEach(element => {
+            if (element.textContent.toLowerCase().includes(query)) {
+                element.style.display = ""; // Show elements that match the search
+            } else {
+                element.style.display = "none"; // Hide non-matching elements
+            }
+        });
+
+        // Reset if search input is cleared
+        if (query === "") {
+            contentElements.forEach(element => {
+                element.style.display = "";
+            });
+        }
+    }
+
+     // JavaScript to hide search bar on scroll
+     window.addEventListener('scroll', function () {
+        const searchContainer = document.getElementById('searchContainer');
+        
+        if (window.scrollY > 50) {
+            searchContainer.classList.add('hidden'); // Hide search bar
+        } else {
+            searchContainer.classList.remove('hidden'); // Show search bar
+        }
+    });
+
+</script>
+
+<script>
+    // JavaScript to hide search bar and register button on scroll
+    window.addEventListener('scroll', function () {
+        const searchContainer = document.getElementById('searchContainer');
+        const registerButton = document.getElementById('registerBtn');
+        
+        if (window.scrollY > 50) {
+            searchContainer.classList.add('hidden'); // Hide search bar
+            registerButton.classList.add('hidden'); // Hide register button
+        } else {
+            searchContainer.classList.remove('hidden'); // Show search bar
+            registerButton.classList.remove('hidden'); // Show register button
+        }
+    });
+</script>
+
+
+<script>
+    // Function to show or hide paragraph based on scroll position
+    window.addEventListener('scroll', function () {
+        const paragraphContainer = document.getElementById('paragraphContainer');
+        
+        if (window.scrollY > 50) {
+            paragraphContainer.classList.add('hidden'); // Hide paragraph
+        } else {
+            paragraphContainer.classList.remove('hidden'); // Show paragraph
+        }
+    });
+</script>
+
+</div>
+
+<section class="section2" id="mission">
+    <div class="cause">
+      <span class="span3" id="board"><b>Who We Are & Why We Exist</b></span>
+      <div class="card-container">
+        
+        <div class="card">
+            <img src="./img/un.png" alt="mission">
+            <div class="title">
+              <h4>Our Mission</h4>
+              <p>
+                At Ngoma Job Board, our mission is to bridge the gap between talent and opportunity 
+                within our community.
+                <span class="dots">...</span>
+                <span class="more-text">
+                    We are committed to empowering job seekers, especially youth and underserved 
+                    groups, by connecting them with meaningful employment, skills development resources, 
+                    and local employers who value potential over privilege.
+                </span>
+              </p>
+              <button class="read-more-btn" data-id="0">Read more</button>
+            </div>
+          </div>
+          
+          <div class="card">
+            <img src="./img/image2.png" alt="Course creation">
+            <div class="title">
+              <h4>Our Vision</h4>
+              <p>
+                To become the go-to platform that unlocks job access, skills development, 
+                and opportunity across rural communities in Africa.
+                <span class="dots">...</span>
+                <span class="more-text"> 
+                    We envision a future where every job seeker in Ngoma District and beyond has equal 
+                    access to meaningful employment. Our goal is to create a thriving ecosystem where 
+                    local talent is recognized, empowered, and connected to opportunities that uplift individuals, 
+                    families, and entire communities.
+                </span>
+              </p>
+              <button class="read-more-btn" data-id="1">Read more</button>
+            </div>
+          </div>
+          
+          <div class="card">
+            <img src="./img/image5.png" alt="story">
+            <div class="title">
+              <h4>Our Story</h4>
+              <p>
+                Born from a deep need to address youth unemployment in Ngoma, our platform was 
+                created by locals for locals,
+                 a space where skills meet opportunity, fairly and transparently.
+                <span class="dots">...</span>
+                <span class="more-text"> 
+                    Too many talented individuals were struggling to find work not because 
+                    they lacked skills or ambition, 
+                    but because opportunities weren’t visible, accessible, or well-connected to the local community.
+                </span>
+              </p>
+              <button class="read-more-btn" data-id="2">Read more</button>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="video-container">
+              <iframe width="100%" height="215" 
+                      src="https://www.youtube.com/embed/shorts/vzuSDt8GEW0" 
+                      title="Our Impact Video"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+              </iframe>
+            </div>
+          
+            <div class="title">
+              <h4>Our Impact</h4>
+              <p>
+                Over 500 job seekers connected, 30+ local businesses supported, 
+                and growing community engagement across Ngoma District
+                <span class="dots">...</span>
+                <span class="more-text">, and we strive to make that possible by increasing access to jobs, skills, and community-driven development pathways.</span>
+              </p>
+              <button class="read-more-btn" data-id="3">Read more</button>
+            </div>
+          </div>
+          
+          
+          <div class="card">
+            <div class="video-container">
+              <iframe width="100%" height="215"
+                      src="https://www.youtube.com/embed/yuIHykb7elA"  
+                      title="Join Our Journey"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+              </iframe>
+            </div>
+          
+            <div class="title">
+              <h4>Join Our Journey</h4>
+              <p>
+                Follow us, share opportunities, or get involved—together, we’re building a stronger Ngoma.
+                <span class="dots">...</span>
+                <span class="more-text">, we aim to boost trade professions by training local talent to 
+                    become skilled mechanics, plumbers, and more.
+                </span>
+              </p>
+              <button class="read-more-btn" data-id="4">Read more</button>
+            </div>
+          </div>
+          
+
+          
+          <script>
+            const buttons = document.querySelectorAll(".read-more-btn");
+          
+            buttons.forEach((btn) => {
+              btn.addEventListener("click", () => {
+                const parent = btn.previousElementSibling; // the <p> tag
+                const dots = parent.querySelector(".dots");
+                const moreText = parent.querySelector(".more-text");
+          
+                const isExpanded = moreText.style.display === "inline";
+          
+                moreText.style.display = isExpanded ? "none" : "inline";
+                dots.style.display = isExpanded ? "inline" : "none";
+                btn.textContent = isExpanded ? "Read more" : "Read less";
+              });
+            });
+          </script>
+                
+  
+                <div class="card">
+                    <img src="./img/image3.png" alt="mission">
+            <div class="title">
+              <h4>Our Values</h4>
+              <p id="missionText">
+                We believe in the power of local talent and the strength of the community. 
+                By connecting job seekers 
+                and employers within Ngoma District, we empower individuals to take control of their future
+                <span id="dots">...</span>
+                <span id="moreText" style="display: none; font-weight: 700;">
+                    *Access & Inclusivity &nbsp;&nbsp;
+                    *Transparency & Trust
+                    *Innovation & Growth &nbsp;&nbsp;
+                    *Youth Empowerment
+                </span>
+              </p>
+              <button onclick="toggleReadMore()" id="readMoreBtn" class="read-more-btn">Read more</button>
+            </div>
+          </div>
+          
+  
+      </div>
+    </div>
+    <script>
+        function toggleReadMore() {
+          const dots = document.getElementById("dots");
+          const moreText = document.getElementById("moreText");
+          const btnText = document.getElementById("readMoreBtn");
+        
+          if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            moreText.style.display = "none";
+            btnText.textContent = "Read more";
+          } else {
+            dots.style.display = "none";
+            moreText.style.display = "inline";
+            btnText.textContent = "Read less";
+          }
+        }
+        </script>
+        
+  </section>
+  
+  <!--  -->
+
+
+  <div class="elevator" id="elevator">
+    <div class="content-section">
+        <!-- Left Side -->
+        <div class="left-side">
+            <h4>Empowering Job Seekers</h4>
+            <p>
+                We understand that many job seekers, especially young people, face serious 
+                challenges like limited job opportunities, lack of experience, and unequal access to
+                skills development. These barriers can make finding meaningful work feel overwhelming and discouraging.
+            </p>
+            <img src="./img/image7.png" alt="Empowering Job Seekers" class="uniform-image">
+        </div>
+
+        <!-- Right Side -->
+        <div class="left-side2">
+            <h4>Meet the Team</h4>
+            <div class="left-side2-content">
+                <img src="./img/image4.png" alt="Team" class="uniform-image">
+                <p>
+                    At Ngoma Job Board, we are a passionate team of community-driven professionals 
+                    who believe in the power of local opportunity. Our mission is to connect talented 
+                    individuals in Ngoma District with employers ready to hire.
+                </p>
+                
+                <h5>Our Social Media</h5>
+                <style>
+                    .left-side2 h5 {
+                        font-size: 18px;
+                        margin-bottom: 10px;
+                        color: #333;
+                    }
+                </style>
+                <div class="social-links">
+                    <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me" target="_blank" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://x.com" target="_blank" class="social-icon">
+                        <i class="fab fa-x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<footer  id="contacty">
+    <div class="footer-container">
+        <!-- Left side: Map with margin-left -->
+        <div class="map">
+            <h4>Our Location</h4>
+            <!-- Embed the Google Map with the location of Gasabo, Kigali, Rwanda -->
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.123456789!2d30.4696!3d-2.1853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19d4f123456789ab%3A0xabcdef1234567890!2sNgoma%20Centre%2C%20Rwanda!5e0!3m2!1sen!2srw!4v1610000000000!5m2!1sen!2srw"
+            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+          </iframe>
+          
+
+            <div class="footer-links">
+                <!-- Tools -->
+
+                <!-- Information -->
+                <div class="footer-link">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#mission">About Us</a></li>
+                        <li><a href="#elevator">Services</a></li>
+                        <li><a href="#">Jobs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="footer-link">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-link">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#contact">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right side: Reach Out Form -->
+        <div class="contact-form">
+            <h3>Reach Out to Us Today</h3>
+            <span>Contact JOB BOARD in Ngoma District for inquiries about our job-search platform</span>
+            <form action="#" method="POST">
+                <input type="text" id="name" name="name" placeholder="Your Name" required><br>
+                <input type="email" id="email" name="email" placeholder="Your Email" required><br>
+                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2025 JOB BOARD. All rights reserved.</p>
+    </div>
+</footer>
+
+
+    
+
+
+<script>
+// Function to detect if an element is in view
+function isElementInView(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Add event listener for scroll to trigger animations on scroll up and down
+window.addEventListener("scroll", function () {
+    const sections = document.querySelectorAll('.left1, .center1, .right1');
+    sections.forEach(section => {
+        // Check if the section is in view
+        if (isElementInView(section)) {
+            // Add 'in-view' class to trigger animation
+            section.classList.add('in-view');
+        } else {
+            // Remove 'in-view' class if the section is not in view
+            section.classList.remove('in-view');
+        }
+    });
+});
+
+// Initial check in case the elements are already in view on page load
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll('.left1, .center1, .right1');
+    sections.forEach(section => {
+        if (isElementInView(section)) {
+            section.classList.add('in-view');
+        }
+    });
+});
+
+
+</script>
+

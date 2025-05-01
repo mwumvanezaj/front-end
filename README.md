@@ -47,4 +47,9 @@ jobboard-web/
 ├── report.pdf               # Short report describing the system
 ├── README.md                # This README file
 └── LICENSE (optional)       # Linced by Dev Konde2025
-
+```
+## How to Set Up Locally
+```
+git clone https://github.com/your-username/ngoma-job-board.git
+cd ngoma-job-board
+```
